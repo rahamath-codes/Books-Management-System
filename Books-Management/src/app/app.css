@@ -1,0 +1,8 @@
+#nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* or higher if needed */
+}
+.contents{
+    min-height: 83vh;
+}

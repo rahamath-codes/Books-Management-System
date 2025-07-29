@@ -1,0 +1,90 @@
+<section class="py-4">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-10 col-lg-8">
+        <div class="card shadow border-0" style="border-radius: 1rem;">
+          <div class="card-header bg-secondary text-white rounded-top">
+            <h4 class="mb-0 py-2 px-3">📘 Add New Book</h4>
+          </div>
+          <div class="card-body p-4">
+            <form [formGroup]="bookForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data" novalidate class="form-horizontal">
+
+              <!-- Title -->
+              <div class="row mb-3 align-items-center">
+                <label class="col-sm-3 col-form-label">Title</label>
+                <div class="col-sm-9">
+                  <input type="text" formControlName="title" class="form-control" />
+                  <div *ngIf="bookForm.get('title')?.touched && bookForm.get('title')?.invalid" class="text-danger small">
+                    <div *ngIf="bookForm.get('title')?.errors?.['required']">Title is required.</div>
+                    <div *ngIf="bookForm.get('title')?.errors?.['minlength']">Minimum 3 characters required.</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Author -->
+              <div class="row mb-3 align-items-center">
+                <label class="col-sm-3 col-form-label">Author</label>
+                <div class="col-sm-9">
+                  <input type="text" formControlName="author" class="form-control" />
+                  <div *ngIf="bookForm.get('author')?.touched && bookForm.get('author')?.invalid" class="text-danger small">
+                    <div *ngIf="bookForm.get('author')?.errors?.['required']">Author is required.</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Category -->
+              <div class="row mb-3 align-items-center">
+                <label class="col-sm-3 col-form-label">Category</label>
+                <div class="col-sm-9">
+                  <select formControlName="category" class="form-select">
+                    <option value="" disabled>Select category</option>
+                    <option *ngFor="let cat of categoryTypes" [value]="cat">{{ cat }}</option>
+                  </select>
+                  <div *ngIf="bookForm.get('category')?.touched && bookForm.get('category')?.invalid" class="text-danger small">
+                    <div *ngIf="bookForm.get('category')?.errors?.['required']">Category is required.</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Description -->
+              <div class="row mb-3 align-items-start">
+                <label class="col-sm-3 col-form-label">Description</label>
+                <div class="col-sm-9">
+                  <textarea formControlName="description" class="form-control" rows="2"></textarea>
+                </div>
+              </div>
+
+              <!-- Book Cover Image -->
+              <div class="row mb-3 align-items-center">
+                <label class="col-sm-3 col-form-label">Book Cover Image</label>
+                <div class="col-sm-9">
+                  <input type="file" class="form-control" (change)="onFileSelected($event)" />
+                </div>
+              </div>
+
+              <!-- Availability -->
+              <div class="row mb-3 align-items-center">
+                <label class="col-sm-3 col-form-label">Available</label>
+                <div class="col-sm-9">
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" formControlName="available" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Submit Button -->
+              <div class="row">
+                <div class="offset-sm-3 col-sm-9">
+                  <button type="submit" class="btn btn-primary w-100" [disabled]="bookForm.invalid">
+                    <i class="bi bi-plus-circle me-1"></i> Add Book
+                  </button>
+                </div>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

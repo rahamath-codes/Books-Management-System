@@ -1,0 +1,85 @@
+<section class="vh-100">
+  <div class="container py-4 h-10 0">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-xl-10">
+        <div class="card shadow border-0" style="border-radius: 1rem;">
+          <div class="row g-0">
+
+            <!-- Left Panel: Create Account Message -->
+            <div class="col-md-6 d-flex justify-content-center align-items-center rounded-start" style="background-color: #f0f8ff;">
+              <div class="text-center p-5">
+                <i class="bi bi-person-plus-fill" style="font-size: 4rem; color: #0d6efd;"></i>
+                <h3 class="fw-bold text-primary mt-3">Create Account</h3>
+                <p class="text-muted mt-2">
+                  Start your journey with ReadIt Library.<br>
+                  Explore, learn, and grow with us.<br>
+                  Register today and open the doors to thousands of books and knowledge.
+                </p>
+              </div>
+            </div>
+
+            <!-- Right Panel: Register Form -->
+            <div class="col-md-6 d-flex align-items-center">
+              <div class="card-body p-4 p-md-5 text-black w-100">
+
+                <div class="text-center mb-4">
+                  <i class="bi bi-person-circle" style="font-size: 3rem; color: #198754;"></i>
+                  <h5 class="fw-bold mb-2">Register to ReadIt</h5>
+                  <p class="text-muted small">Join our community and access the digital library</p>
+                </div>
+
+                <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" novalidate>
+
+                  <div class="form-floating mb-3">
+                    <input type="text" formControlName="userName" class="form-control" id="floatingName" placeholder="Name" autocomplete="off"  />
+                    <label for="floatingName">Name</label>
+                    <div *ngIf="registerForm.get('userName')?.touched && registerForm.get('userName')?.invalid" class="text-danger small mt-1">
+                      Username is required.
+                    </div>
+                  </div>
+
+                  <div class="form-floating mb-3">
+                    <input type="email" formControlName="userEmail" class="form-control" id="floatingEmail" placeholder="Email" autocomplete="off"  />
+                    <label for="floatingEmail">Email</label>
+                    <div *ngIf="registerForm.get('userEmail')?.touched && registerForm.get('userEmail')?.invalid" class="text-danger small mt-1">
+                      Valid email is required.
+                    </div>
+                  </div>
+
+                  <div class="form-floating mb-3">
+                    <input type="password" formControlName="password" class="form-control" id="floatingPassword" placeholder="Password" autocomplete="off"  />
+                    <label for="floatingPassword">Password</label>
+                    <div *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.invalid" class="text-danger small mt-1">
+                      Password is required (min 6 characters).
+                    </div>
+                  </div>
+
+                  <div class="form-floating mb-3">
+                    <input type="password" formControlName="confirmPassword" class="form-control" id="floatingConfirmPassword" placeholder="Confirm Password" autocomplete="off"  />
+                    <label for="floatingConfirmPassword">Confirm Password</label>
+                    <div *ngIf="(registerForm.get('confirmPassword')?.touched || submitted) && registerForm.errors?.['mismatch']" class="text-danger small mt-1">
+                      Passwords do not match.
+                    </div>
+                  </div>
+
+                  <button type="submit" class="btn btn-success w-100 mb-3" [disabled]="registerForm.invalid || registerForm.errors?.['mismatch']">
+                    <i class="bi bi-check-circle me-1"></i> Register
+                  </button>
+                </form>
+
+                <div class="text-center">
+                  <small class="text-muted">
+                    Already have an account?
+                    <a routerLink="/login" class="text-primary text-decoration-none">Login</a>
+                  </small>
+                </div>
+
+              </div>
+            </div> <!-- End Right Panel -->
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,69 @@
+<div class="container mt-4">
+
+  <!-- Input Section -->
+  <div class="card mb-4 shadow-sm">
+    <div class="card-body">
+      <div class="row g-3 align-items-center">
+        <div class="col-md-4">
+          <label class="form-label mb-1">User ID</label>
+          <input type="number" class="form-control" [(ngModel)]="userId" placeholder="Enter User ID">
+        </div>
+
+        <div class="col-md-4">
+          <label class="form-label mb-1">Book ID</label>
+          <input type="number" class="form-control" [(ngModel)]="bookId" placeholder="Enter Book ID">
+        </div>
+
+        <div class="col-md-4 d-flex gap-2 mt-4">
+          <button class="btn btn-outline-primary w-100" (click)="getBorrowedBooks()">Get Borrowed</button>
+          <button class="btn btn-outline-success w-100" (click)="borrowBook()">Borrow</button>
+          <button class="btn btn-outline-danger w-100" (click)="returnBook()">Return</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container py-4">
+  <div class="card shadow rounded">
+    <div class="card-body">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="mb-0">Borrowed Books</h2>
+        <div *ngIf="userName && userEmail" class="text-end small text-muted">
+          <i class="bi bi-person-circle me-1"></i>
+          <strong>{{ userName }}</strong>
+          <br />
+          <span>{{ userEmail }}</span>
+        </div>
+      </div>
+
+      <div *ngIf="borrowedBooks.length === 0" class="alert alert-warning text-center">
+        No borrowed books found.
+      </div>
+
+      <div class="table-responsive" *ngIf="borrowedBooks.length > 0">
+        <table class="table table-bordered table-hover align-middle">
+          <thead class="table-dark text-center">
+            <tr>
+              <th>Sno</th>
+              <th>Title</th>
+              <th>Author</th>
+              <th>Borrow Date</th>
+              <th>Return Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let book of borrowedBooks; let i = index">
+              <td>{{ i + 1 }}</td>
+              <td>{{ book.bookTitle }}</td>
+              <td>{{ book.bookAuthor }}</td>
+              <td>{{ book.borrowDate | date: 'shortDate' }}</td>
+              <td>{{ book.returnDate ? (book.returnDate | date: 'shortDate') : 'Not Returned' }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>

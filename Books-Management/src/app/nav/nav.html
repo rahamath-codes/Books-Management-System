@@ -1,0 +1,65 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid me-3 ms-2">
+    <a class="navbar-brand text-white" routerLink="/home">📚 ReadIt Library</a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse mt-2 mb-2" id="navbarSupportedContent">
+      <form class="d-flex ms-auto me-3" (submit)="onSearch(); $event.preventDefault()">
+        <input
+          class="form-control me-2"
+          type="search"
+          placeholder="Search books"
+          [(ngModel)]="searchTerm"
+          name="searchTerm"
+        />
+        <button class="btn btn-outline-light" type="submit">Search</button>
+      </form>
+
+      <ul class="navbar-nav ">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/books" routerLinkActive="active">Books</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/favbooks" routerLinkActive="active">Favorites</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/borrowedbooklist" routerLinkActive="active">Borrowed</a>
+        </li>
+        <!-- Librarian Dropdown -->
+        <li class="nav-item dropdown" *ngIf="isLibrarian">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            [class.disabled]="!isLibrarian"
+            (click)="!isLibrarian && $event.preventDefault()"
+          >
+            Librarian
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark" *ngIf="isLibrarian">
+            <li class="ms-1 me-1"><a class="dropdown-item" routerLink="/addbook">Add Book</a></li>
+            <li class="ms-1 me-1"><a class="dropdown-item" routerLink="/managebook">Manage Books</a></li>
+            <li class="ms-1 me-1"><a class="dropdown-item" routerLink="/borrowbook">Borrow Requests</a></li>
+            <li class="ms-1 me-1"><a class="dropdown-item" routerLink="/users">Manage Users</a></li>
+          </ul>
+        </li>
+          <button class="btn btn-danger ms-2" (click)="logout()">Logout</button>
+      </ul>
+    </div>
+  </div>
+</nav>

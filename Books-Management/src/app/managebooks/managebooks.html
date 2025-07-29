@@ -1,0 +1,86 @@
+<div class="container py-4">
+  <div class="card shadow rounded">
+    <div class="card-body">
+      <h2 class="card-title text-center mb-4">Manage Books</h2>
+
+      <div *ngIf="books.length === 0" class="alert alert-warning text-center">
+        No books available.
+      </div>
+
+      <div class="table-responsive" *ngIf="books.length > 0">
+        <table class="table table-bordered table-hover align-middle">
+          <thead class="table-dark text-center">
+            <tr>
+              <th>Sno</th>
+              <th>BookId</th>
+              <th>Title</th>
+              <th>Author</th>
+              <th>Description</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let book of books; let i = index">
+                <td>{{i+1}}</td>
+              <!-- Editable fields -->
+               <td *ngIf="editingId === book.id">
+                <input [(ngModel)]="book.id" class="form-control" />
+              </td>
+              <td *ngIf="editingId === book.id">
+                <input [(ngModel)]="book.title" class="form-control" />
+              </td>
+              <td *ngIf="editingId === book.id">
+                <input [(ngModel)]="book.author" class="form-control" />
+              </td>
+              <td *ngIf="editingId === book.id">
+                <textarea [(ngModel)]="book.description" rows="1" class="form-control"></textarea>
+              </td>
+
+              <!-- View mode -->
+              <td *ngIf="editingId !== book.id">{{ book.id }}</td>
+              <td *ngIf="editingId !== book.id">{{ book.title }}</td>
+              <td *ngIf="editingId !== book.id">{{ book.author }}</td>
+              <td *ngIf="editingId !== book.id">{{ book.description }}</td>
+
+              <td>
+                <div class="d-flex gap-2 justify-content-center">
+                  <button
+                    class="btn btn-sm btn-primary"
+                    (click)="startEdit(book.id)"
+                    *ngIf="editingId !== book.id"
+                  >
+                    Edit
+                  </button>
+
+                  <button
+                    class="btn btn-sm btn-success"
+                    (click)="saveEdit(book)"
+                    *ngIf="editingId === book.id"
+                  >
+                    Save
+                  </button>
+
+                  <button
+                    class="btn btn-sm btn-secondary"
+                    (click)="cancelEdit()"
+                    *ngIf="editingId === book.id"
+                  >
+                    Cancel
+                  </button>
+
+                  <button
+                    class="btn btn-sm btn-danger"
+                    (click)="deleteBook(book.id)"
+                  >
+                    Delete
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>

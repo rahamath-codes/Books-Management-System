@@ -1,0 +1,26 @@
+<div class="container mt-4">
+  <h2 class="text-center mb-4">Your Favorite Books</h2>
+
+  <div *ngIf="message" class="alert alert-warning text-center">{{ message }}</div>
+
+  <div *ngIf="favoriteBooks.length === 0 && !message" class="alert alert-warning text-center mt-4 shadow-sm">
+    <i class="bi bi-heartbreak" style="font-size: 1.5rem;"></i><br />
+    <strong>No favorite books found.</strong><br />
+    Start adding books to your favorites to see them here!
+  </div>
+
+  <div class="row">
+    <div *ngFor="let book of favoriteBooks" class="col-md-4 mb-4">
+      <div class="card shadow-sm h-100 border-0 hover-shadow">
+        <div class="card-body">
+          <h5 class="card-title text-primary">{{ book.title }}</h5>
+          <p class="card-text"><strong>Author:</strong> {{ book.author }}</p>
+          <p class="card-text"><strong>Category:</strong> {{ book.category }}</p>
+          <button (click)="removeFromFavorite(book.id)" class="btn btn-outline-danger w-100 mt-2">
+            ❤️ Remove from Favorites
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

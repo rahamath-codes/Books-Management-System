@@ -1,0 +1,41 @@
+table {
+  font-size: 0.9rem;
+    border-radius: 10px; 
+}
+form .form-label {
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+.card-body,.card{
+  border-radius: 10px !important;
+}
+.edit-form-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: all 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-20px);
+  z-index: 10;
+}
+
+.edit-form-overlay.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Card styles matching table width */
+.edit-form-card {
+  background-color: #eaeaea;
+  border-radius: 8px;
+  width: 100%; /* Ensures full width like table */
+  max-width: none;
+}
+
+.edit-form-card .form-control,
+.edit-form-card .form-select {
+  background-color: #ffffff;
+}

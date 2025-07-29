@@ -1,0 +1,92 @@
+<section class="vh-100">
+  <div class="container py-4 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-xl-10">
+        <div class="card shadow border-0" style="border-radius: 1rem;">
+          <div class="row g-0">
+
+            <!-- Left Icon Panel -->
+            <div class="col-md-6 d-flex justify-content-center align-items-center rounded-start" style="background-color: #ffffff;">
+              <div class="text-center p-4 px-5">
+                <div class="mb-1">
+                  <i class="bi bi-book-fill" style="font-size: 4rem; color: #3bc4f6;"></i>
+                </div>
+                <h4 class="fw-bold text-primary">ReadIt Library</h4>
+                <p class="text-muted mb-3">Your gateway to knowledge and discovery.</p>
+                <ul class="list-unstyled text-start text-secondary small mx-auto" style="max-width: 300px;">
+                  <li class="mb-2">📚 <strong>Thousands</strong> of curated books across all genres.</li>
+                  <li class="mb-2">🔎 Easy search and borrowing system.</li>
+                  <li class="mb-2">⏱️ Track your borrowed books & return dates.</li>
+                  <li class="mb-2">🌐 Access your library from anywhere, anytime.</li>
+                  <li class="mb-2">🧠 Fuel your learning with our digital archive.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Right Login Form -->
+            <div class="col-md-6 d-flex align-items-center">
+              <div class="card-body p-4 p-md-5 text-black w-100">
+
+                <div class="text-center mb-4 img">
+                  <img src="https://cdn-icons-png.flaticon.com/512/3135/3135768.png" alt="Login" width="64" class="mb-2" />
+                  <h5 class="fw-bold text-dark mb-1">Welcome to ReadIt Library</h5>
+                  <p class="text-muted small mb-0">Please login to continue</p>
+                </div>
+
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+                  <div class="form-floating mb-3">
+                    <input
+                      type="email"
+                      formControlName="userEmail"
+                      class="form-control"
+                      id="floatingEmail"
+                      placeholder="Email"
+                      autocomplete="off" 
+                    />
+                    <label for="floatingEmail">Email</label>
+                    <div *ngIf="loginForm.get('userEmail')?.touched && loginForm.get('userEmail')?.invalid" class="text-danger small mt-1">
+                      Valid email is required.
+                    </div>
+                  </div>
+
+                  <div class="form-floating mb-3">
+                    <input
+                      type="password"
+                      formControlName="password"
+                      class="form-control"
+                      id="floatingPassword"
+                      placeholder="Password"
+                    />
+                    <label for="floatingPassword">Password</label>
+                    <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid" class="text-danger small mt-1">
+                      Password is required.
+                    </div>
+                  </div>
+
+                  <div *ngIf="errorMessage" class="alert alert-danger small p-2 mb-2">
+                    {{ errorMessage }}
+                  </div>
+
+                  <button class="btn btn-primary w-100 mb-3" type="submit" [disabled]="loginForm.invalid">
+                    <i class="bi bi-box-arrow-in-right me-1"></i> Login
+                  </button>
+                </form>
+
+                <div class="text-center">
+                  <small class="text-muted">
+                    Don't have an account?
+                    <a routerLink="/register" routerLinkActive="active-link" class="text-primary text-decoration-none">
+                      Register
+                    </a>
+                  </small>
+                </div>
+
+              </div>
+            </div> <!-- End Right -->
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

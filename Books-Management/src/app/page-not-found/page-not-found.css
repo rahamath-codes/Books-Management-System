@@ -1,0 +1,10 @@
+.container{
+    padding: 50px;
+    border-radius: 20px;
+  background-color:rgba(240, 248, 255, 0.812);
+}
+p{
+    font-size: large;
+    font-weight: 400;
+    /* background-color: rgba(240, 248, 255, 0.753); */
+}

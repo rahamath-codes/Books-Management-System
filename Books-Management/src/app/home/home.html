@@ -1,0 +1,179 @@
+<div class="container text-center">
+  <h1 class="display-2 mb-3">📚 Welcome to ReadIt!</h1>
+  <p class="lead">Your personal library, simplified and organized.</p>
+
+  <div class="d-flex justify-content-center gap-3 mt-4 flex-wrap">
+    <a routerLink="/books" routerlinkactive="active-link" class="btn btn-primary btn-lg">View All Books</a>
+    <a routerLink="/favbooks" class="btn btn-success btn-lg">My Favorite Books</a>
+    <a routerLink="/borrowedbooklist" class="btn btn-danger btn-lg">Borrowed Books</a>
+  </div>
+</div>
+
+<div id="cardCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+
+    <!-- Slide 1 -->
+    <div class="carousel-item active">
+      <div class="d-flex justify-content-center gap-3">
+        <div class="card mb-3" style="max-width: 320px;">
+          <div class="row g-0" style="height: 120px;">
+            <div class="col-md-4">
+              <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=200&q=80" 
+                   class="img-fluid rounded-start" alt="Fiction" 
+                   style="height: 100%; width: 100%; object-fit: cover;">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body p-2">
+                <h5 class="card-title">Fiction</h5>
+                <p class="card-text" style="font-size: 0.8rem;">Explore a wide range of fictional stories and novels.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card mb-3" style="max-width: 320px;">
+          <div class="row g-0" style="height: 120px;">
+            <div class="col-md-4">
+              <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=200&q=80" 
+                   class="img-fluid rounded-start" alt="Science" 
+                   style="height: 100%; width: 100%; object-fit: cover;">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body p-2">
+                <h5 class="card-title">Science</h5>
+                <p class="card-text" style="font-size: 0.8rem;">Discover the latest in science and technology.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card mb-3" style="max-width: 320px;">
+          <div class="row g-0" style="height: 120px;">
+            <div class="col-md-4">
+              <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=200&q=80" 
+                   class="img-fluid rounded-start" alt="History" 
+                   style="height: 100%; width: 100%; object-fit: cover;">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body p-2">
+                <h5 class="card-title">History</h5>
+                <p class="card-text" style="font-size: 0.8rem;">Learn about historical events and figures.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="carousel-item">
+      <div class="d-flex justify-content-center gap-3">
+        <div class="card mb-3" style="max-width: 320px;">
+          <div class="row g-0" style="height: 120px;">
+            <div class="col-md-4">
+              <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=200&q=80" 
+                   class="img-fluid rounded-start" alt="Biographies" 
+                   style="height: 100%; width: 100%; object-fit: cover;">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body p-2">
+                <h5 class="card-title">Biographies</h5>
+                <p class="card-text" style="font-size: 0.8rem;">Read inspiring stories of people's lives.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card mb-3" style="max-width: 320px;">
+          <div class="row g-0" style="height: 120px;">
+            <div class="col-md-4">
+              <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=400&q=80" 
+                   class="img-fluid rounded-start" alt="Technology" 
+                   style="height: 100%; width: 100%; object-fit: cover;">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body p-2">
+                <h5 class="card-title">Technology</h5>
+                <p class="card-text" style="font-size: 0.8rem;">Stay updated with tech advances and trends.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card mb-3" style="max-width: 320px;">
+          <div class="row g-0" style="height: 120px;">
+            <div class="col-md-4">
+              <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=200&q=80" 
+                   class="img-fluid rounded-start" alt="Philosophy" 
+                   style="height: 100%; width: 100%; object-fit: cover;">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body p-2">
+                <h5 class="card-title">Philosophy</h5>
+                <p class="card-text" style="font-size: 0.8rem;">Explore deep thoughts and ideas.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="carousel-item">
+      <div class="d-flex justify-content-center gap-3">
+        <div class="card mb-3" style="max-width: 320px;">
+          <div class="row g-0" style="height: 120px;">
+            <div class="col-md-4">
+              <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=200&q=80" 
+                   class="img-fluid rounded-start" alt="Travel" 
+                   style="height: 100%; width: 100%; object-fit: cover;">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body p-2">
+                <h5 class="card-title">Travel</h5>
+                <p class="card-text" style="font-size: 0.8rem;">Discover books about adventures and destinations.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card mb-3" style="max-width: 320px;">
+          <div class="row g-0" style="height: 120px;">
+            <div class="col-md-4">
+              <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" 
+                   class="img-fluid rounded-start" alt="Art" 
+                   style="height: 100%; width: 100%; object-fit: cover;">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body p-2">
+                <h5 class="card-title">Art</h5>
+                <p class="card-text" style="font-size: 0.8rem;">Explore books about art and creativity.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card mb-3" style="max-width: 320px;">
+          <div class="row g-0" style="height: 120px;">
+            <div class="col-md-4">
+              <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=200&q=80" 
+                   class="img-fluid rounded-start" alt="About ReadIt" 
+                   style="height: 100%; width: 100%; object-fit: cover;">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body p-2">
+                <h5 class="card-title">About ReadIt</h5>
+                <p class="card-text" style="font-size: 0.8rem;">Your digital library platform to borrow and organize books easily.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <button class="carousel-control-prev ms-5" type="button" data-bs-target="#cardCarousel" data-bs-slide="prev" style="background-color: black; width: 40px; border-radius: 50%;">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+  <button class="carousel-control-next me-5" type="button" data-bs-target="#cardCarousel" data-bs-slide="next" style="background-color: black; width: 40px; border-radius: 50%;">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
+
+
+

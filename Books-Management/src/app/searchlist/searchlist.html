@@ -1,0 +1,36 @@
+<div class="container mt-4">
+<div class="d-flex justify-content-between align-items-center mb-3 flex-wrap">
+  <h5 class="text-muted">
+    <i class="bi bi-search me-2"></i> Search Results for "{{ searchTerm }}"
+  </h5>
+  <a routerLink="/home" class="btn btn-primary">
+    <i class="bi bi-arrow-left-circle-fill me-1"></i> Back to Home
+  </a>
+</div>
+
+<div *ngIf="filteredBooks.length === 0" class="alert alert-warning text-center">
+    No books found.
+  </div>
+  <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-3" *ngIf="filteredBooks.length > 0">
+  
+    <div class="col" *ngFor="let book of filteredBooks">
+      <div class="card h-100 shadow-sm">
+        <img
+          [src]="book.image ? 'http://localhost:8080/readit/books/' + book.id + '/image' : 'https://via.placeholder.com/200x300?text=No+Image'"
+          class="card-img-top"
+          style="height: 260px; object-fit: cover; background-color: #f8f9fa;"
+          [alt]="book.title"
+        />
+
+        <div class="card-body py-2 px-2">
+          <h6 class="card-title text-truncate">{{ book.title }}</h6>
+          <div class="text-truncate"><strong>Author:</strong> {{ book.author }}</div>
+          <div class="text-truncate"><strong>Category:</strong> {{ book.category }}</div>
+          <p class="card-text text-muted mt-1 mb-1" style="font-size: 0.7rem;">
+            {{ book.description | slice:0:60 }}{{ book.description.length > 60 ? '...' : '' }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
